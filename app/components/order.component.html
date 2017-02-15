@@ -1,0 +1,38 @@
+<div class="panel-content">
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>
+				Order No
+			</th>
+			<th>
+				Order date
+			</th>
+			<th>
+				Order By
+			</th>
+			<th>
+				Order Status
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let order of orderList; let i = index">
+			<td>
+				{{order.web_order_no}}
+			</td>
+			<td>
+				{{order.order_date | date: 'dd/MMM/yyyy'}} 
+			</td>
+			<td>
+				{{order.email_id}}
+			</td>
+			<td>
+				<select id="orderStatus" [(ngModel)]="order.order_status">
+					<option *ngFor="let status of statusList" [ngValue]="status">{{status}}</option>
+				</select>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
